@@ -33,6 +33,12 @@ struct SudokuBoard {
         guard !cells[row][col].isGiven else { return }
         cells[row][col].value = value
         cells[row][col].candidates = []
+        if value != 0 {
+            for c in 0..<9 { cells[row][c].candidates.remove(value) }
+            for r in 0..<9 { cells[r][col].candidates.remove(value) }
+            let br = (row / 3) * 3, bc = (col / 3) * 3
+            for r in br..<br+3 { for c in bc..<bc+3 { cells[r][c].candidates.remove(value) } }
+        }
         validateErrors()
     }
 
@@ -69,29 +75,13 @@ struct SudokuBoard {
     // MARK: - Error validation
 
     mutating func validateErrors() {
-        for r in 0..<9 { for c in 0..<9 { cells[r][c].isError = false } }
-
-        for i in 0..<9 {
-            markErrors(positions: (0..<9).map { (i, $0) })         // row i
-            markErrors(positions: (0..<9).map { ($0, i) })         // col i
-            let br = (i / 3) * 3, bc = (i % 3) * 3
-            markErrors(positions: (0..<3).flatMap { r in           // box i
-                (0..<3).map { c in (br + r, bc + c) }
-            })
-        }
-    }
-
-    private mutating func markErrors(positions: [(Int, Int)]) {
-        var seen: [Int: (Int, Int)] = [:]
-        for (r, c) in positions {
-            let v = cells[r][c].value
-            guard v != 0 else { continue }
-            if let prev = seen[v] {
-                cells[r][c].isError = true
-                cells[prev.0][prev.1].isError = true
-            } else {
-                seen[v] = (r, c)
+        for r in 0..<9 {
+            for c in 0..<9 {
+                let v = cells[r][c].value
+                cells[r][c].isError = v != 0 && !cells[r][c].isGiven && v != solution[r][c]
             }
         }
     }
+
+
 }

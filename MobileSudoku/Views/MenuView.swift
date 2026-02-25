@@ -1,33 +1,75 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Binding var colorSchemePreference: String
+    @Binding var selectedDifficulty: Difficulty
+    @Binding var maxMistakes: Int
     let onStart: (Difficulty) -> Void
-    @State private var selected: Difficulty = .medium
+
+    @State private var showRecords = false
 
     var body: some View {
         VStack(spacing: 0) {
+            HStack {
+                Button {
+                    showRecords = true
+                } label: {
+                    Image(systemName: "trophy")
+                        .font(.title2)
+                        .padding(16)
+                }
+                Spacer()
+                Button {
+                    switch colorSchemePreference {
+                    case "system": colorSchemePreference = "light"
+                    case "light":  colorSchemePreference = "dark"
+                    default:       colorSchemePreference = "system"
+                    }
+                } label: {
+                    Image(systemName: colorSchemeIcon)
+                        .font(.title2)
+                        .padding(16)
+                }
+            }
+
             Text("数独")
                 .font(.system(size: 56, weight: .bold))
-                .padding(.top, 72)
+                .padding(.top, 16)
 
             Text("Sudoku")
                 .font(.title3)
                 .foregroundStyle(.secondary)
-                .padding(.bottom, 48)
+                .padding(.bottom, 32)
 
             VStack(spacing: 12) {
                 ForEach(Difficulty.allCases, id: \.self) { difficulty in
-                    DifficultyRow(difficulty: difficulty, isSelected: selected == difficulty) {
-                        selected = difficulty
+                    DifficultyRow(difficulty: difficulty, isSelected: selectedDifficulty == difficulty) {
+                        selectedDifficulty = difficulty
                     }
                 }
             }
             .padding(.horizontal, 32)
 
+            // Error limit setting
+            HStack {
+                Text("错误上限")
+                    .font(.subheadline.weight(.medium))
+                Spacer()
+                Text(maxMistakes == 0 ? "无限制" : "\(maxMistakes) 次")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Stepper("", value: $maxMistakes, in: 0...10)
+                    .labelsHidden()
+            }
+            .padding()
+            .background(Color(.systemGray6), in: RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal, 32)
+            .padding(.top, 16)
+
             Spacer()
 
             Button {
-                onStart(selected)
+                onStart(selectedDifficulty)
             } label: {
                 Text("开始游戏")
                     .font(.title2.bold())
@@ -38,6 +80,15 @@ struct MenuView: View {
             }
             .padding(.horizontal, 32)
             .padding(.bottom, 52)
+        }
+        .sheet(isPresented: $showRecords) { RecordsView() }
+    }
+
+    private var colorSchemeIcon: String {
+        switch colorSchemePreference {
+        case "light": return "sun.max.fill"
+        case "dark":  return "moon.fill"
+        default:      return "circle.lefthalf.filled"
         }
     }
 }

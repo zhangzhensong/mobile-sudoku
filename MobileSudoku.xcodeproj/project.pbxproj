@@ -10,6 +10,7 @@
 		083FD2EAC05D795280499A17 /* MobileSudokuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75DCCCB17900984AC858B8 /* MobileSudokuApp.swift */; };
 		0A41C0ECD5122AFB046F394B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFCBEC1B68C20B51EB89A4 /* CellView.swift */; };
 		0DC7AFE81C471E66C37E05E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D384EEDE80E89D2091F78ADD /* Assets.xcassets */; };
+		0F18B686CFDB821B7EC6520A /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E22927D7ED22AE0D211488A /* RecordsView.swift */; };
 		5537C5664652C00A54CDA8C1 /* SudokuSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9340CB47C50DADB81955DB4C /* SudokuSolver.swift */; };
 		782B0166457E2EFA8FD3DDC8 /* SudokuBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD756AC816FB733C15CB7CBD /* SudokuBoard.swift */; };
 		893DD98853E6FC4F309DCCF6 /* SudokuGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F23BE5E6A0FA545653BF56F /* SudokuGenerator.swift */; };
@@ -18,16 +19,21 @@
 		A6529D2632B55A10016A394E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3049D1897E132ECAF41C3A /* BoardView.swift */; };
 		B2A6598A068E57F2104E6475 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E202A73660C7E1DE259A0716 /* GameView.swift */; };
 		B3B07A79A81343060AECB55D /* CellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D201BDB5D01198D4E7BE9C79 /* CellState.swift */; };
+		D78B145EAEE1B0C187D4278C /* GameRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3559299271C33EE40B956AE7 /* GameRecord.swift */; };
+		D85C0DA30762E3256D19C0B4 /* RecordsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A922CF86874E04D19588E9 /* RecordsStore.swift */; };
 		E2DB60964906906900E20597 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D46FB9C86E0B9EAF9951724 /* ContentView.swift */; };
 		F62A223AFFA71F2031D190F7 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5211365790F30D58A440F8 /* MenuView.swift */; };
 		FF2025689DFA492CBD2EFD79 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024AA45258072070E756275F /* GameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01A922CF86874E04D19588E9 /* RecordsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsStore.swift; sourceTree = "<group>"; };
 		024AA45258072070E756275F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		035D26BAB4E0FA6F68D8EB22 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		0DED1E932AADFD7ABA1F77B5 /* MobileSudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileSudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E22927D7ED22AE0D211488A /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 		272BEBA40F77C9EFAA135E13 /* NumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadView.swift; sourceTree = "<group>"; };
+		3559299271C33EE40B956AE7 /* GameRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecord.swift; sourceTree = "<group>"; };
 		3ECFCBEC1B68C20B51EB89A4 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		5D46FB9C86E0B9EAF9951724 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5F3049D1897E132ECAF41C3A /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 				E202A73660C7E1DE259A0716 /* GameView.swift */,
 				9A5211365790F30D58A440F8 /* MenuView.swift */,
 				272BEBA40F77C9EFAA135E13 /* NumberPadView.swift */,
+				1E22927D7ED22AE0D211488A /* RecordsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -72,6 +79,8 @@
 			children = (
 				D201BDB5D01198D4E7BE9C79 /* CellState.swift */,
 				035D26BAB4E0FA6F68D8EB22 /* Difficulty.swift */,
+				3559299271C33EE40B956AE7 /* GameRecord.swift */,
+				01A922CF86874E04D19588E9 /* RecordsStore.swift */,
 				AD756AC816FB733C15CB7CBD /* SudokuBoard.swift */,
 				7F23BE5E6A0FA545653BF56F /* SudokuGenerator.swift */,
 				9340CB47C50DADB81955DB4C /* SudokuSolver.swift */,
@@ -180,11 +189,14 @@
 				0A41C0ECD5122AFB046F394B /* CellView.swift in Sources */,
 				E2DB60964906906900E20597 /* ContentView.swift in Sources */,
 				A131DA12214E2B754C278E1E /* Difficulty.swift in Sources */,
+				D78B145EAEE1B0C187D4278C /* GameRecord.swift in Sources */,
 				B2A6598A068E57F2104E6475 /* GameView.swift in Sources */,
 				FF2025689DFA492CBD2EFD79 /* GameViewModel.swift in Sources */,
 				F62A223AFFA71F2031D190F7 /* MenuView.swift in Sources */,
 				083FD2EAC05D795280499A17 /* MobileSudokuApp.swift in Sources */,
 				89F7661B7D2596384303C915 /* NumberPadView.swift in Sources */,
+				D85C0DA30762E3256D19C0B4 /* RecordsStore.swift in Sources */,
+				0F18B686CFDB821B7EC6520A /* RecordsView.swift in Sources */,
 				782B0166457E2EFA8FD3DDC8 /* SudokuBoard.swift in Sources */,
 				893DD98853E6FC4F309DCCF6 /* SudokuGenerator.swift in Sources */,
 				5537C5664652C00A54CDA8C1 /* SudokuSolver.swift in Sources */,
@@ -209,7 +221,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zzs.MobileSudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzs.sudoku;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,7 +362,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zzs.MobileSudoku;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzs.sudoku;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";

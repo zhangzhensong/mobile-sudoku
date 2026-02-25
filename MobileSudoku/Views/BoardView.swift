@@ -18,6 +18,7 @@ struct BoardView: View {
                                     cell: vm.board[row, col],
                                     background: vm.cellBackground(row: row, col: col),
                                     size: cellSize,
+                                    shakeID: vm.shakeID(row: row, col: col),
                                     onTap: { vm.selectCell(row: row, col: col) }
                                 )
                             }

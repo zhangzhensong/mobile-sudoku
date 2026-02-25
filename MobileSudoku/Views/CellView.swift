@@ -4,7 +4,10 @@ struct CellView: View {
     let cell: CellState
     let background: Color
     let size: CGFloat
+    let shakeID: Int
     let onTap: () -> Void
+
+    @State private var shakes: CGFloat = 0
 
     var body: some View {
         ZStack {
@@ -20,12 +23,31 @@ struct CellView: View {
         }
         .frame(width: size, height: size)
         .contentShape(Rectangle())
+        .modifier(ShakeEffect(shakes: shakes))
         .onTapGesture(perform: onTap)
+        .onChange(of: shakeID) { _, newID in
+            guard newID > 0 else { return }
+            shakes = 0
+            withAnimation(.linear(duration: 0.4)) { shakes = 1 }
+        }
     }
 
     private var foregroundColor: Color {
         if cell.isError { return .red }
         return cell.isGiven ? .primary : .blue
+    }
+}
+
+// MARK: - Shake animation
+
+private struct ShakeEffect: AnimatableModifier {
+    var shakes: CGFloat
+    var animatableData: CGFloat {
+        get { shakes }
+        set { shakes = newValue }
+    }
+    func body(content: Content) -> some View {
+        content.offset(x: sin(shakes * .pi * 4) * 5)
     }
 }
 
